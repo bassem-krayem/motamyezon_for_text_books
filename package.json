@@ -1,0 +1,85 @@
+{
+  "name": "motamyezon_for_text_books",
+  "version": "1.0.0",
+  "description": "This project is a full-stack web application designed to provide a seamless experience for users to upload, browse, and download books in accessible formats like EPUB, AZW3, and KFX. The application is targeted at blind and visually impaired users who prefer accessible digital books in Arabic and other languages.",
+  "main": "app.js",
+  "type": "module",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bassem-krayem/motamyezon_for_text_books.git"
+  },
+  "keywords": [
+    "books",
+    "ebooks",
+    "epub",
+    "azw3",
+    "kfx",
+    "online",
+    "library",
+    "user",
+    "authentication",
+    "file",
+    "upload",
+    "book",
+    "categories",
+    "reading",
+    "accessibility",
+    "blind",
+    "users",
+    "book",
+    "metadata",
+    "search",
+    "functionality",
+    "postgresql",
+    "database",
+    "node.js",
+    "express",
+    "framework",
+    "web",
+    "application",
+    "file",
+    "storage",
+    "user",
+    "profiles",
+    "responsive",
+    "design",
+    "book",
+    "submission",
+    "frontend",
+    "development",
+    "backend",
+    "development",
+    "open",
+    "source"
+  ],
+  "author": "Bassem krayem",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bassem-krayem/motamyezon_for_text_books/issues"
+  },
+  "homepage": "https://github.com/bassem-krayem/motamyezon_for_text_books#readme",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.3",
+    "buffer-crc32": "^1.0.0",
+    "connect-redis": "^7.1.1",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.21.0",
+    "express-session": "^1.18.0",
+    "multer": "^1.4.5-lts.1",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0",
+    "pg": "^8.13.0",
+    "uid2": "^1.0.0"
+  }
+}
