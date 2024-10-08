@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الكتب المتاحة</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>قائمة الكتب المتاحة</h1>
+
+        <ul class="book-list">
+            <% books.forEach((book)=> { %>
+                <li class="book-item">
+                    <h2>عنوان الكتاب: <%= book.book_title %>
+                    </h2>
+                    <p>المؤلف: <%= book.book_author %>
+                    </p>
+                    <p>الوصف: <%= book.book_description %>
+                    </p>
+
+                    <div class="download-links">
+                        <p>تحميل الكتاب:</p>
+                        <ul>
+                            <li><a href="/download/<%= book.book_id %>/epub">تحميل بصيغة EPUB</a></li>
+                            <li><a href="/download/<%= book.book_id %>/azw3">تحميل بصيغة AZW3</a></li>
+                            <li><a href="/download/<%= book.book_id %>/kfx">تحميل بصيغة KFX</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <% }); %>
+        </ul>
+    </div>
+
+</body>
+
+</html>

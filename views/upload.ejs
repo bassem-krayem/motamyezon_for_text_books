@@ -1,0 +1,37 @@
+<%- include('partials/header.ejs') %>
+    <main>
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <div>
+                <label for="title">اسم الكتاب:</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+
+            <div>
+                <label for="author">مؤلف الكتاب:</label>
+                <input type="text" id="author" name="author" required>
+            </div>
+
+            <div>
+                <label for="description">وصف الكتاب:</label>
+                <textarea id="description" name="description"></textarea>
+            </div>
+
+            <div>
+                <label for="epub">ملف EPUB:</label>
+                <input type="file" id="epub" name="epub" accept=".epub" required>
+            </div>
+
+            <div>
+                <label for="azw3">ملف AZW3:</label>
+                <input type="file" id="azw3" name="azw3" accept=".azw3" required>
+            </div>
+
+            <div>
+                <label for="kfx">ملف KFX:</label>
+                <input type="file" id="kfx" name="kfx" accept=".kfx" required>
+            </div>
+
+            <button type="submit">رفع الكتاب</button>
+        </form>
+    </main>
+    <%- include('partials/footer.ejs') %>

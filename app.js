@@ -1,7 +1,8 @@
 import express from 'express';
 import passport from 'passport';
 import session from 'express-session';
-import router from './routes/authRoutes.js';
+import authRouter from './routes/authRoutes.js';
+import bookRouter from './routes/bookRoutes.js'
 
 const app = express();
 const port = 3000;
@@ -22,7 +23,8 @@ app.use(express.static("public"));
     app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(router);
+app.use(authRouter);
+app.use(bookRouter)
 
 
 app.listen(port, () => {
