@@ -1,37 +1,72 @@
-<%- include('partials/header.ejs') %>
-    <main>
-        <form action="/upload" method="POST" enctype="multipart/form-data">
-            <div>
-                <label for="title">اسم الكتاب:</label>
-                <input type="text" id="title" name="title" required>
-            </div>
+<!DOCTYPE html>
+<html lang="ar">
 
-            <div>
-                <label for="author">مؤلف الكتاب:</label>
-                <input type="text" id="author" name="author" required>
-            </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رفع كتاب جديد</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
 
-            <div>
-                <label for="description">وصف الكتاب:</label>
-                <textarea id="description" name="description"></textarea>
-            </div>
+<body>
+    <div class="container">
+        <h1>رفع كتاب جديد</h1>
 
-            <div>
-                <label for="epub">ملف EPUB:</label>
-                <input type="file" id="epub" name="epub" accept=".epub" required>
+        <!-- Display error message if any -->
+        <% if (locals.error) { %>
+            <div class="error-message">
+                <p>
+                    <%= error %>
+                </p>
             </div>
+            <% } %>
 
-            <div>
-                <label for="azw3">ملف AZW3:</label>
-                <input type="file" id="azw3" name="azw3" accept=".azw3" required>
-            </div>
+                <form action="/admin/upload" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="title">عنوان الكتاب:</label>
+                        <input type="text" name="title" id="title" required>
+                    </div>
 
-            <div>
-                <label for="kfx">ملف KFX:</label>
-                <input type="file" id="kfx" name="kfx" accept=".kfx" required>
-            </div>
+                    <div class="form-group">
+                        <label for="author">المؤلف:</label>
+                        <input type="text" name="author" id="author" required>
+                    </div>
 
-            <button type="submit">رفع الكتاب</button>
-        </form>
-    </main>
-    <%- include('partials/footer.ejs') %>
+                    <div class="form-group">
+                        <label for="description">الوصف:</label>
+                        <textarea name="description" id="description" rows="4"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="category">التصنيف:</label>
+                        <select name="category_id" id="category" required>
+                            <option value="">اختر التصنيف</option>
+                            <% categories.forEach((category)=> { %>
+                                <option value="<%= category.category_id %>">
+                                    <%= category.category_name %>
+                                </option>
+                                <% }); %>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="epub">ملف EPUB:</label>
+                        <input type="file" name="epub" id="epub" accept=".epub" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="azw3">ملف AZW3:</label>
+                        <input type="file" name="azw3" id="azw3" accept=".azw3" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="kfx">ملف KFX:</label>
+                        <input type="file" name="kfx" id="kfx" accept=".kfx" required>
+                    </div>
+
+                    <button type="submit">رفع الكتاب</button>
+                </form>
+    </div>
+</body>
+
+</html>

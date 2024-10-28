@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إضافة تصنيف جديد</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>إضافة تصنيف جديد</h1>
+        <% if (locals.error) { %>
+            <div class="error-message">
+                <%= error %>
+            </div>
+            <% } %>
+                <form action="/admin/addCategory" method="POST">
+                    <label for="category_name">اسم التصنيف:</label>
+                    <input type="text" name="category_name" id="category_name" required>
+                    <button type="submit">إضافة</button>
+                </form>
+    </div>
+</body>
+
+</html>

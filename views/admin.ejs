@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم</title>
+    <link rel="stylesheet" href="/css/style.css"> <!-- Link to your CSS -->
+</head>
+
+<body>
+    <%- include('partials/header.ejs') %> <!-- Include the header partial -->
+
+        <main>
+            <div class="admin-panel">
+                <h1>لوحة التحكم الخاصة بالمشرف</h1>
+
+                <section class="actions">
+                    <h2>إدارة الكتب والتصنيفات</h2>
+
+                    <div class="action-item">
+                        <p>لتحميل كتاب جديد، اضغط على الزر أدناه:</p>
+                        <a href="/admin/upload" class="btn">تحميل كتاب</a>
+                    </div>
+
+                    <div class="action-item">
+                        <p>لإضافة تصنيف جديد، اضغط على الزر أدناه:</p>
+                        <a href="/admin/addCategory" class="btn">إضافة تصنيف</a>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <%- include('partials/footer.ejs') %> <!-- Include the footer partial -->
+
+            <style>
+                /* Add some basic styling to make the page look nicer */
+                body {
+                    font-family: Arial, sans-serif;
+                    direction: rtl;
+                    /* Ensure text is displayed from right to left */
+                }
+
+                .admin-panel {
+                    max-width: 600px;
+                    margin: 0 auto;
+                    padding: 20px;
+                }
+
+                h1,
+                h2 {
+                    text-align: center;
+                }
+
+                .actions {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+                }
+
+                .action-item {
+                    background-color: #f1f1f1;
+                    padding: 15px;
+                    text-align: center;
+                    border-radius: 8px;
+                }
+
+                .btn {
+                    background-color: #4CAF50;
+                    color: white;
+                    padding: 10px 20px;
+                    text-decoration: none;
+                    border-radius: 5px;
+                }
+
+                .btn:hover {
+                    background-color: #45a049;
+                }
+            </style>
+</body>
+
+</html>
