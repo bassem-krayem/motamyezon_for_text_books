@@ -4,22 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>متميزون للكتب النصية</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS file -->
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="public/css/styles/styles.css"> <!-- Link to external CSS file -->
 </head>
 
 <body dir="rtl">
     <header>
-        <h1>متميزون للكتب النصية</h1>
+        <a href="/">
+            <img src="/public/css/images/MotamyzonLogo.jpg" alt="متميزون للكتب النصية">
+        </a>
         <nav>
             <ul>
-                <li><a href="#about">عن المكتبة</a></li>
-                <li><a href="#services">الخدمات</a></li>
-                <li><a href="#collection">المكتبة</a></li>
-                <li><a href="#contact">تواصل معنا</a></li>
-                <li><a href="/books">قائمة الكتب</a></li>
-                <li><a href="/admin/upload">رفع كتاب</a></li>
-                <a class="btn btn-light btn-lg" href="/logout" role="button">Log Out</a>
+                <li><a href="/">الصفحة الرئيسية</a></li>
+                <li><a href="/books">المكتبة</a></li>
+                <li><a href="/about">عن فريق متميزون</a></li>
+                <% if (user && user.user_type==='admin' ) { %>
+                    <li><a href="/admin">لوحة التحكم</a></li>
+                    <% } %>
+                        <a class="btn btn-light btn-lg" href="/logout" role="button">Log Out</a>
             </ul>
         </nav>
     </header>

@@ -1,24 +1,4 @@
-<!DOCTYPE html>
-<html lang="ar">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>متميزون للكتب النصية</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
-</head>
-
-<body dir="rtl">
-    <header>
-        <h1>متميزون للكتب النصية</h1>
-        <nav>
-            <ul>
-                <li><a href="/login">تسجيل الدخول</a></li>
-                <li><a href="/register">إنشاء حساب</a></li>
-            </ul>
-        </nav>
-    </header>
-
+<%- include('partials/headerGuest.ejs') %>
     <main>
         <section id="access-restricted">
             <h2>مرحبا بك!</h2>
@@ -27,10 +7,4 @@
             <p>إذا كنت جديدًا، يمكنك <a href="/register">إنشاء حساب جديد</a>.</p>
         </section>
     </main>
-
-    <footer>
-        <p>حقوق النشر &copy; 2024 فريق متميزون. جميع الحقوق محفوظة.</p>
-    </footer>
-</body>
-
-</html>
+    <%- include('partials/footer.ejs') %>

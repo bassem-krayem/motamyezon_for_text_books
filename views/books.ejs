@@ -1,66 +1,54 @@
-<!DOCTYPE html>
-<html lang="ar">
+<%- include('partials/header.ejs') %>
+    <main>
+        <div class="container">
+            <h1>قائمة الكتب المتاحة</h1>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الكتب المتاحة</title>
-    <link rel="stylesheet" href="/css/style.css">
-</head>
+            <!-- Category filter -->
+            <form method="GET" action="/books">
+                <label for="category">تصفية حسب التصنيف:</label>
+                <select name="categoryId" id="category">
+                    <option value="">كل التصنيفات</option>
+                    <% categories.forEach((category)=> { %>
+                        <option value="<%= category.category_id %>" <%=selectedCategory==category.category_id
+                            ? 'selected' : '' %>>
+                            <%= category.category_name %>
+                        </option>
+                        <% }) %>
+                </select>
+                <button type="submit">تصفية</button>
+            </form>
 
-<body>
-
-    <div class="container">
-        <h1>قائمة الكتب المتاحة</h1>
-
-        <!-- Category filter -->
-        <form method="GET" action="/books">
-            <label for="category">تصفية حسب التصنيف:</label>
-            <select name="categoryId" id="category">
-                <option value="">كل التصنيفات</option>
-                <% categories.forEach((category)=> { %>
-                    <option value="<%= category.category_id %>" <%=selectedCategory==category.category_id ? 'selected'
-                        : '' %>>
-                        <%= category.category_name %>
-                    </option>
-                    <% }) %>
-            </select>
-            <button type="submit">تصفية</button>
-        </form>
-
-        <ul class="book-list">
-            <% books.forEach((book)=> { %>
-                <li class="book-item">
-                    <h2>عنوان الكتاب: <%= book.book_title %>
-                    </h2>
-                    <p>المؤلف: <%= book.book_author %>
-                    </p>
-                    <% if (book.book_description) { %>
-                        <p>الوصف: <%= book.book_description %>
+            <ul class="book-list">
+                <% books.forEach((book)=> { %>
+                    <li class="book-item">
+                        <h2>عنوان الكتاب: <%= book.book_title %>
+                        </h2>
+                        <p>المؤلف: <%= book.book_author %>
                         </p>
-                        <% } %>
+                        <% if (book.book_description) { %>
+                            <p>الوصف: <%= book.book_description %>
+                            </p>
+                            <% } %>
 
-                            <div class="download-links">
-                                <p>تحميل الكتاب:</p>
-                                <ul>
-                                    <li><a href="/books/download/<%= book.book_id %>/epub">تحميل بصيغة EPUB</a></li>
-                                    <li><a href="/books/download/<%= book.book_id %>/azw3">تحميل بصيغة AZW3</a></li>
-                                    <li><a href="/books/download/<%= book.book_id %>/kfx">تحميل بصيغة KFX</a></li>
-                                </ul>
+                                <div class="download-links">
+                                    <p>تحميل الكتاب:</p>
+                                    <ul>
+                                        <li><a href="/books/download/<%= book.book_id %>/epub">تحميل بصيغة EPUB</a></li>
+                                        <li><a href="/books/download/<%= book.book_id %>/azw3">تحميل بصيغة AZW3</a></li>
+                                        <li><a href="/books/download/<%= book.book_id %>/kfx">تحميل بصيغة KFX</a></li>
+                                    </ul>
 
-                                <% if (user && user.user_type==='admin' ) { %>
-                                    <!-- Check if the user is an admin -->
-                                    <form action="/books/delete/<%= book.book_id %>" method="POST"
-                                        onsubmit="return confirm('هل أنت متأكد أنك تريد حذف هذا الكتاب؟ سيتم الحذف بشكل نهائي.')">
-                                        <button type="submit" class="delete-button">حذف الكتاب</button>
-                                    </form>
-                                    <% } %>
-                            </div>
-                </li>
-                <% }); %>
-        </ul>
-    </div>
-
-</body>
-
-</html>
+                                    <% if (user && user.user_type==='admin' ) { %>
+                                        <!-- Check if the user is an admin -->
+                                        <form action="/books/delete/<%= book.book_id %>" method="POST"
+                                            onsubmit="return confirm('هل أنت متأكد أنك تريد حذف هذا الكتاب؟ سيتم الحذف بشكل نهائي.')">
+                                            <button type="submit" class="delete-button">حذف الكتاب</button>
+                                        </form>
+                                        <% } %>
+                                </div>
+                    </li>
+                    <% }); %>
+            </ul>
+        </div>
+    </main>
+    <%- include('partials/footer.ejs') %>

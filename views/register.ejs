@@ -1,27 +1,33 @@
-<%- include('partials/header.ejs') %>
-
-    <div class="container">
-        <h1>تسجيل حساب جديد</h1>
-        <% if (locals.error) { %>
-            <h2>
-                <%= error %>
-            </h2>
-            <% } %>
-                <form action="/register" method="POST">
-                    <div class="form-group">
-                        <label for="username">اسم المستخدم:</label>
-                        <input type="text" id="username" name="username" required class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">البريد الإلكتروني:</label>
-                        <input type="email" id="email" name="email" required class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="password">كلمة المرور:</label>
-                        <input type="password" id="password" name="password" required class="form-control">
-                    </div>
-                    <button type="submit" class="btn btn-primary">تسجيل</button>
-                </form>
-    </div>
-
+<%- include('partials/headerGuest.ejs') %>
+    <main>
+        <div class="container">
+            <h1>تسجيل حساب جديد</h1>
+            <% if (locals.error) { %>
+                <h2>
+                    <%= error %>
+                </h2>
+                <% } %>
+                    <form action="/register" method="POST">
+                        <div class="form-group">
+                            <label for="username">اسم المستخدم:</label>
+                            <input type="text" id="username" name="username" required class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">البريد الإلكتروني:</label>
+                            <input type="email" id="email" name="email" required class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">كلمة المرور:</label>
+                            <input type="password" id="password" name="password" required class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-primary">تسجيل</button>
+                    </form>
+        </div>
+        <p>
+            لو كان لديك حساب بالفعل ف سجل الدخول من
+            <a href="/login">
+                هنا
+            </a>
+        </p>
+    </main>
     <%- include('partials/footer.ejs') %>

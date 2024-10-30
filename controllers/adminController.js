@@ -14,7 +14,7 @@
     const adminPage = (req, res) => {
         if (req.isAuthenticated()) {
             if (req.user.user_type === 'admin') {
-              res.render('admin.ejs');
+              res.render('admin.ejs', {title: 'لوحة التحكم', user: req.user});
             } else {
               res.send('this page accessible only for admins');
             }
@@ -28,7 +28,7 @@
         if (req.user.user_type === 'admin') {
           try {
             const categories = await Books.getAllCategories();
-            res.render('upload.ejs', { categories, error: null });
+            res.render('upload.ejs', { categories, error: null, title: "رفع كتاب", user: req.user });
           } catch (err) {
             console.error("Error fetching categories:", err);
             res.status(500).send("Error fetching categories.");
@@ -157,7 +157,7 @@
     const addCategoryPage = (req, res) => {
       if (req.isAuthenticated()) {
         if (req.user.user_type === 'admin') {
-          res.render('addCategory.ejs');
+          res.render('addCategory.ejs', {title: "إضافة قسم", user: req.user});
         } else {
           res.send('هذه الصفحة متاحة فقط للمسؤولين');
         }

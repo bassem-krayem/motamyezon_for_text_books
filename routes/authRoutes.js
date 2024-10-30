@@ -10,5 +10,6 @@ authRouter.get('/register', authController.registerPage);
 authRouter.post('/register', authController.registerUser);
 authRouter.get('/', authController.homePage);
 authRouter.get('/beforeauth', authController.beforeAuthPage);
+authRouter.get('/about', authController.aboutPage);
 
 export default authRouter;

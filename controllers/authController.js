@@ -5,7 +5,7 @@ const loginPage = (req, res) => {
     if (req.isAuthenticated()) {
         res.redirect('/');
     } else {
-        res.render('login.ejs');
+        res.render('login.ejs', {title: 'تسجيل الدخول'});
     }
 };
 
@@ -13,13 +13,13 @@ const registerPage = (req, res) => {
     if (req.isAuthenticated()) {
         res.redirect('/');
     } else {
-        res.render('register.ejs');
+        res.render('register.ejs', {title: 'إنشاء حساب'});
     }
 };
 
 const homePage = (req, res) => {
     if (req.isAuthenticated()) {
-        res.render('home.ejs');
+        res.render('home.ejs', {user: req.user, title: 'متميزون للكتب النصية'});
     } else {
         res.redirect('/beforeauth');
     }
@@ -29,9 +29,13 @@ const beforeAuthPage = (req, res) => {
     if (req.isAuthenticated()) {
         res.redirect('/');
     } else {
-        res.render('beforeAuth.ejs');
+        res.render('beforeAuth.ejs', {title: 'متميزون للكتب النصية'});
     }
 };
+
+const aboutPage = (req, res) => {
+    res.render('about.ejs', {title: 'عن فريق متميزون', user: req.user})
+}
 
 const checkLogin = (req, res, next) => {
     passport.authenticate('local', (err, user, info) => {
@@ -109,6 +113,7 @@ export {
     registerPage,
     homePage,
     beforeAuthPage,
+    aboutPage,
     checkLogin,
     logout,
     registerUser,

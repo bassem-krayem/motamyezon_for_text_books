@@ -19,7 +19,7 @@ const listBooks = async (req, res) => {
   try {
     const books = await Books.getAllBooks(categoryId);
     const categories = await Books.getAllCategories();
-    res.render('books.ejs', { books, categories, user: req.user, selectedCategory: categoryId });
+    res.render('books.ejs', { books, categories, user: req.user, selectedCategory: categoryId, title: 'المكتبة'});
   } catch (err) {
     console.error("Error fetching books:", err);
     res.status(500).send("Error fetching books.");
