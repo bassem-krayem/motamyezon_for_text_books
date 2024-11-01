@@ -44,7 +44,7 @@ const checkLogin = (req, res, next) => {
             return next(err);
         }
         if (!user) {
-            return res.render('login.ejs', { error: info.message });
+            return res.render('login.ejs', { error: info.message, title: 'تسجيل الدخول'});
         }
         req.login(user, (err) => {
             if (err) {
@@ -81,14 +81,17 @@ const registerUser = async (req, res) => {
         if (existingUsername && existingEmail) {
             return res.render('register.ejs', {
                 error: 'اسم المستخدم والبريد الإلكتروني مستخدمان بالفعل، الرجاء اختيار اسم مستخدم وبريد إلكتروني آخرين.',
+                title: 'إنشاء  حساب',
             });
         } else if (existingUsername) {
             return res.render('register.ejs', {
                 error: 'اسم المستخدم موجود بالفعل، الرجاء اختيار اسم مستخدم آخر.',
+                title: 'إنشاء  حساب',
             });
         } else if (existingEmail) {
             return res.render('register.ejs', {
                 error: 'البريد الإلكتروني مستخدم بالفعل، الرجاء استخدام بريد إلكتروني آخر.',
+                title: 'إنشاء  حساب',
             });
         }
 
