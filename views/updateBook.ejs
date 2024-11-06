@@ -1,0 +1,37 @@
+<%- include('partials/header.ejs') %>
+    <main>
+        <div class="container">
+            <h1>تحديث معلومات الكتاب</h1>
+
+            <!-- Display error message if any -->
+            <% if (error) { %>
+                <div class="error-message">
+                    <h2>
+                        <%= error %>
+                    </h2>
+                </div>
+                <% } %>
+
+                    <!-- Form for updating book details -->
+                    <form action="/books/update/<%= book.book_id %>" method="POST">
+                        <div class="form-group">
+                            <label for="title">عنوان الكتاب:</label>
+                            <input type="text" name="book_title" id="title" value="<%= book.book_title %>" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="author">المؤلف:</label>
+                            <input type="text" name="book_author" id="author" value="<%= book.book_author %>" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description">الوصف:</label>
+                            <textarea name="book_description" id="description"
+                                rows="4"><%= book.book_description %></textarea>
+                        </div>
+
+                        <button type="submit">تحديث الكتاب</button>
+                    </form>
+        </div>
+    </main>
+    <%- include('partials/footer.ejs') %>

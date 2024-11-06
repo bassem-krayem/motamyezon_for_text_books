@@ -88,6 +88,24 @@ class Books {
       throw err;
     }
   }
-}
+
+  static async updateBookById(bookId, updatedData) {
+    const { book_title, book_author, book_description } = updatedData;
+    try {
+      const query = `
+        UPDATE books
+        SET book_title = $1, book_author = $2, book_description = $3
+        WHERE book_id = $4
+        RETURNING *;
+      `;
+      const values = [book_title, book_author, book_description, bookId];
+      const result = await db.query(query, values);
+      return result.rows[0];  // Return updated book details
+    } catch (err) {
+      console.error("Database error updating book:", err);
+      throw err;
+    }
+  }
+  }
 
 export default Books;

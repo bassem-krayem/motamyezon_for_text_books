@@ -40,11 +40,16 @@
 
                                     <% if (user && user.user_type==='admin' ) { %>
                                         <!-- Check if the user is an admin -->
-                                        <form action="/books/delete/<%= book.book_id %>" method="POST"
-                                            onsubmit="return confirm('هل أنت متأكد أنك تريد حذف هذا الكتاب؟ سيتم الحذف بشكل نهائي.')">
-                                            <button type="submit" class="delete-button">حذف الكتاب</button>
-                                        </form>
+                                        <a href="/books/update/<%= book.book_id %>">تحديث الكتاب</a>
                                         <% } %>
+
+                                            <% if (user && user.user_type==='admin' ) { %>
+                                                <!-- Check if the user is an admin -->
+                                                <form action="/books/delete/<%= book.book_id %>" method="POST"
+                                                    onsubmit="return confirm('هل أنت متأكد أنك تريد حذف هذا الكتاب؟ سيتم الحذف بشكل نهائي.')">
+                                                    <button type="submit" class="delete-button">حذف الكتاب</button>
+                                                </form>
+                                                <% } %>
                                 </div>
                     </li>
                     <% }); %>

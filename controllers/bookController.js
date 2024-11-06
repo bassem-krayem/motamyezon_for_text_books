@@ -88,8 +88,107 @@ const deleteBook = async (req, res) => {
   }
 };
 
+
+const getBookById = async (req, res) => {
+  if (!req.isAuthenticated()) {
+    return res.redirect('/login');
+  }
+
+  const bookId = parseInt(req.params.id, 10);
+
+  if (isNaN(bookId)) {
+    // Render the template with an error message for an invalid book ID
+    return res.render('updateBook.ejs', {
+      error: 'Invalid book ID',
+      book: null,
+      title: 'تحديث الكتاب',
+      user: req.user,
+    });
+  }
+
+  try {
+    const book = await Books.getBookById(bookId);
+
+    if (!book) {
+      return res.render('updateBook.ejs', {
+        error: 'Book not found',
+        book: null,
+        title: 'تحديث الكتاب',
+        user: req.user,
+      });
+    }
+
+    // Render the update page with the book data
+    res.render('updateBook.ejs', {
+      book,
+      error: null,
+      title: 'تحديث الكتاب',
+      user: req.user,
+    });
+  } catch (err) {
+    console.error('Error fetching book:', err);
+    res.render('updateBook.ejs', {
+      error: 'An error occurred while fetching the book',
+      book: null,
+      title: 'تحديث الكتاب',
+      user: req.user,
+    });
+  }
+};
+
+
+// Updated function to handle the book update without file uploads
+const updateBook = async (req, res) => {
+  if (!req.isAuthenticated()) {
+    return res.redirect('/login');
+  }
+
+  const bookId = parseInt(req.params.id, 10);
+
+  if (isNaN(bookId)) {
+    return res.status(400).send('Invalid book ID.');
+  }
+
+  try {
+    const { book_title, book_author, book_description } = req.body;
+
+    // Validate required fields
+    if (!book_title || !book_author) {
+      return res.render('updateBook.ejs', {
+        error: 'Title and author are required.',
+        book: await Books.getBookById(bookId),
+        title: 'تحديث الكتاب',
+        user: req.user,
+      });
+    }
+
+    // Prepare updated data
+    const updatedBook = {
+      book_title,
+      book_author,
+      book_description,
+    };
+
+    // Update the book in the database
+    await Books.updateBookById(bookId, updatedBook);
+
+    // Redirect to the book list or the updated book page
+    res.redirect('/books');
+  } catch (error) {
+    console.error('Error updating book:', error);
+    res.render('updateBook.ejs', {
+      error: 'An error occurred while updating the book.',
+      book: await Books.getBookById(bookId),
+      title: 'تحديث الكتاب',
+      user: req.user,
+    });
+  }
+};
+
 export {
   listBooks,
   downloadBook,
   deleteBook,
+  getBookById,
+  updateBook,
 };

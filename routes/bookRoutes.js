@@ -12,4 +12,7 @@ bookRouter.get('/download/:bookId/:format', bookController.downloadBook);
 // Route for deleting a book
 bookRouter.post('/delete/:bookId', bookController.deleteBook);
 
+bookRouter.get('/update/:id', bookController.getBookById);
+bookRouter.post('/update/:id', bookController.updateBook);
+
 export default bookRouter;
