@@ -16,7 +16,7 @@
 
 **Motamyezon for Text Books** is a platform designed to make books accessible for blind users by providing them in formats such as EPUB, AZW3, and KFX. Created to support the volunteer team Motamyezon, this project enables easy browsing, downloading, and managing books in accessible formats, making reading more inclusive.
 
-- [Motamyezon Landing Page](your-landing-page-link)
+- [Motamyezon Landing Page](bassem.github.io/motamyezon_for_text_books_landing_page)
 
 ## Features 💡
 
@@ -57,11 +57,37 @@
 
 4. **Set Up the Database**
 
-   - Create a PostgreSQL database and configure the database connection in the `.env` file:
+   1. **Open PostgreSQL**:
+      - Start by opening the PostgreSQL interactive terminal:
+      ```bash
+      psql
+      ```
 
-   ```bash
-   DATABASE_URL=your_database_url
-   ```
+   2. **Create the Database**:
+      - Create a new database named `motamyezon`:
+      ```sql
+      CREATE DATABASE motamyezon;
+      ```
+
+   3. **Create the Tables**:
+      - Use the provided SQL script to create the necessary tables. Run the following command in the terminal to pipe the `create_table.sql` script into PostgreSQL:
+      ```bash
+      cat sql_scripts/create_table.sql | psql -d motamyezon
+      ```
+
+   4. **Configure Environment Variables**:
+      - In the root of the project, create a `.env` file after installing dependencies.
+      - Replace the placeholders below with your own PostgreSQL credentials (such as `PG_USER` and `PG_PASSWORD`), and add the following environment variables to the `.env` file:
+
+      ```plaintext
+      PG_USER=your_postgresql_username
+      PG_HOST="localhost"
+      PG_DATABASE=motamyezon
+      PG_PASSWORD=your_postgresql_password
+      PG_PORT=5432
+      SESSION_SECRET="books from motamyezon"
+      ```
+
 
 5. **Run the Application**
    ```bash
