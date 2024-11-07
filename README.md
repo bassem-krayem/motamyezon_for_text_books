@@ -144,8 +144,8 @@ The inspiration for **Motamyezon for Text Books** comes from the efforts of the 
 
 ## Acknowledgments 👥
 
-- **Holberton School** for providing the educational foundation for this project.
-- **Motamyezon Team** for inspiring this project with their commitment to accessibility.
+- **[Holberton School](https://holbertonschool.com)** for providing the educational foundation for this project.
+- **[Motamyezon Team](https://t.me/motamyezon/)** for inspiring this project with their commitment to accessibility.
 - **Mentors and Peers** for their invaluable support and guidance.
 
 ```
