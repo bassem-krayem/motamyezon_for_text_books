@@ -8,6 +8,7 @@
     "test": "tests"
   },
   "scripts": {
+    "start": "node app.js",
     "test": "jest"
   },
   "repository": {
