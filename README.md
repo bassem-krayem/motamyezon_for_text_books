@@ -58,24 +58,37 @@
 4. **Set Up the Database**
 
    1. **Open PostgreSQL**:
+
       - Start by opening the PostgreSQL interactive terminal:
+
       ```bash
-      psql
+      psql -U your_username -d postgres
       ```
 
    2. **Create the Database**:
+
       - Create a new database named `motamyezon`:
+
       ```sql
       CREATE DATABASE motamyezon;
       ```
 
+      - Then, switch to the created database
+
+      ```sql
+      \c motamyezon
+      ```
+
    3. **Create the Tables**:
+
       - Use the provided SQL script to create the necessary tables. Run the following command in the terminal to pipe the `create_table.sql` script into PostgreSQL:
+
       ```bash
-      cat sql_scripts/create_table.sql | psql -d motamyezon
+      cat sql_scripts/create_tables.sql | psql -U your_username -d motamyezon
       ```
 
    4. **Configure Environment Variables**:
+
       - In the root of the project, create a `.env` file after installing dependencies.
       - Replace the placeholders below with your own PostgreSQL credentials (such as `PG_USER` and `PG_PASSWORD`), and add the following environment variables to the `.env` file:
 
@@ -87,7 +100,6 @@
       PG_PORT=5432
       SESSION_SECRET="books from motamyezon"
       ```
-
 
 5. **Run the Application**
    ```bash
