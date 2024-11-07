@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS categories (
 );
 CREATE TABLE IF NOT EXISTS books(
     book_id SERIAL PRIMARY KEY,
-    book_title VARCHAR(200) NOT NULL,
+    book_title VARCHAR(200) NOT NULL UNIQUE,
     book_author VARCHAR(100) NOT NULL,
     book_description TEXT,
     book_epub_url VARCHAR(200) NOT NULL,
