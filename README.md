@@ -106,6 +106,28 @@
    npm start
    ```
 
+## Usage
+
+1. **Open the Project**:
+
+   - Open your browser and go to [localhost:3000](http://localhost:3000) to view the application.
+
+2. **Create an Account**:
+
+   - Sign up to create a new user account. By default, new accounts have regular user privileges.
+
+3. **Grant Admin Access**:
+   - If you need to access the admin panel to upload books or manage categories, you must set your account to admin.
+   - To do this, open PostgreSQL:
+     ```bash
+     psql -U your_username -d motamyezon
+     ```
+   - Run the following SQL command to update your account to admin status (replace `'your_username'` with your actual username):
+     ```sql
+     UPDATE users SET user_type = 'admin' WHERE user_name = 'your_username';
+     ```
+   - After updating, log back into the application, and you will have access to the admin panel and its features.
+
 ## Technologies Used ⚙️
 
 - **Node.js** (backend runtime)
