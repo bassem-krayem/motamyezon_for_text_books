@@ -1,4 +1,140 @@
 <%- include('partials/header.ejs') %>
+    <style>
+        /* Main Container */
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Page Header */
+        .container h1 {
+            font-size: 2em;
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        /* Category Filter */
+        form {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        form label {
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        form select,
+        form button {
+            padding: 8px 12px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        form button {
+            background-color: #0066cc;
+            color: #ffffff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        form button:hover {
+            background-color: #004d99;
+        }
+
+        /* Book List */
+        .book-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .book-item {
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .book-item h2 {
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .book-item p {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        /* Download Links */
+        .download-links {
+            margin-top: 15px;
+        }
+
+        .download-links p {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .download-links ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .download-links ul li {
+            margin-bottom: 5px;
+        }
+
+        .download-links ul li a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .download-links ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Admin Controls */
+        .book-item a {
+            color: #ff6600;
+            text-decoration: none;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .book-item a:hover {
+            text-decoration: underline;
+        }
+
+        .delete-button {
+            background-color: #ff4d4d;
+            color: #ffffff;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .delete-button:hover {
+            background-color: #cc0000;
+        }
+    </style>
     <main>
         <div class="container">
             <h1>قائمة الكتب المتاحة</h1>

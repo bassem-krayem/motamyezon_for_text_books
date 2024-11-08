@@ -9,14 +9,103 @@
         <%= title %>
     </title>
     <!-- Add any guest-specific styles or scripts here -->
-    <link rel="stylesheet" href="/path/to/your/styles.css">
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh;
+            padding: 20px;
+        }
+
+        #access-restricted {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            text-align: center;
+        }
+
+        #access-restricted h2 {
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        #access-restricted p {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        #access-restricted a {
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        #access-restricted a:hover {
+            text-decoration: underline;
+        }
+
+
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+        }
+
+        header .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .navbar img {
+            height: 50px;
+        }
+
+        header .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        header .navbar a {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        header .navbar a:hover {
+            background-color: #f4f4f9;
+        }
+    </style>
 </head>
 
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a href="/">
-                <img src="/public/css/images/MotamyzonLogo.jpg" alt="متميزون للكتب النصية">
+                <img src="/css/images/MotamyzonLogo.jpg" alt="متميزون للكتب النصية">
             </a>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
